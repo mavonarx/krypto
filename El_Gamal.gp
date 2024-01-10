@@ -1,21 +1,27 @@
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 yellow(s) = { return(concat("\e[33m", concat(s, "\e[0m"))); }
-print("El_Gamel: Usage El_Gamel(z,g), \nz = Zn*, g = generator");
+print("El_Gamel: Usage El_Gamel(z,{g},{A}), \nz = Zn*, g = generator");
 printf(blue("This is an INTERACTIVE script\n"));
-print("To find a generator use znstar(n) and then the 3. argument")
+print("Generator and Public Key of Alice are optional")
 
-El_Gamal(z, g) = {
-    my(A, B, key_Bob, key_Alice);
-    
-    print("type in the secret number of alice");
-    a = input();
-    a = a % z;
-    printf(blue("Private key a of alice: %d\n"), a);
-   
-    A = g^a % z;
-    printf(yellow("Public key A of alice formula: g^a %% z = A\n"));
-    printf(blue("Public key A of alice: %d^%d %% %d = %d\n"),g,a,z, A);
+El_Gamal(z, g=0, A=0) = {
+    my(B, key_Bob, key_Alice);
+    if (g==0, 
+      g = lift(znstar(z)[3][1]);
+      printf("Generator = %d\n", g);
+      );
+    dont = 0;
+    if (A == 0,
+      print("type in the secret number of alice");
+      dont = 1;
+      a = input();
+      a = a % z;
+      printf(blue("Private key a of alice: %d\n"), a);
+      A = g^a % z;
+      printf(yellow("Public key A of alice formula: g^a %% z = A\n"));
+      printf(blue("Public key A of alice: %d^%d %% %d = %d\n"),g,a,z, A);
+   );
 
 
     print("type in the secret key of bob");
@@ -37,7 +43,11 @@ El_Gamal(z, g) = {
     printf(green("c = %d^%d * %d %% %d= %d\n"), A,b,m,z,c);
     printf(green("Bob sends his public key =  %d\nand the encrypted message c = %d\n"), B, c);
 
-    m2 = c*B^(z-1-a) %z;
-    printf(yellow("Message recovery forumla: c * B^(z-1-a) %% z = m\n"));
-    printf(blue("Alice berechnet %d * %d^(%d-1-%d) %% %d = %d\n"), c,B, z, a, z, m2);
+    if (dont==1,
+      m2 = c*B^(z-1-a) %z;
+      printf(yellow("Message recovery forumla: c * B^(z-1-a) %% z = m\n"));
+      printf(blue("Alice berechnet %d * %d^(%d-1-%d) %% %d = %d\n"), c,B, z, a, z, m2);
+
+      );
+
 }
