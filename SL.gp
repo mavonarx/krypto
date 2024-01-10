@@ -12,7 +12,15 @@ SL(n, test)={
     printf("u = %d\n",u);
 
     if(test^u % n == (n-1),
-        printf(blue("%d is a strong liar for %d"), test, n),
-        printf(red("%d is not a strong liar for %d"), test, n)
+        printf(blue("%d is a strong liar for %d\n"), test, n);
+        printf(blue("test ^ %d  = -1 modulo(%d)\n"), test, n);
     );
+
+    for(k=0, r-1,
+        if(test^(2^k * u) % n == (n-1),
+            printf(blue("%d is a strong liar for %d\n"), test, n);
+            printf(blue("%d^(2^%d * %d) = -1 modulo(%d)"), test, k, u, n);
+        );
+    ):
+    printf(red("%d is not a strong liar for %d"), test, n);
 }
