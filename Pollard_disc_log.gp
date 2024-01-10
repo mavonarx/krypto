@@ -2,6 +2,7 @@ red(s) = { return(concat("\e[31m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 print("DISCRETE LOG: \=> Pollard_disc_log(a,g,p,g1_low, g1_up, g2_low, g2_up, g3_low, g3_up)");
+print("Parameter explanation: x = log_g(a) in Zp")
 
 Pollard_disc_log(a,g,p,g1_low, g1_up, g2_low, g2_up, g3_low, g3_up) = {
     my(x, r, s, r_t, s_t);
@@ -104,7 +105,7 @@ Pollard_disc_log(a,g,p,g1_low, g1_up, g2_low, g2_up, g3_low, g3_up) = {
                 printf(green("Linear_mod_equation: %dx = %d (mod %d)\n\n"), r_t-r, s-s_t, p-1);
                 sol_vec = Linear_mod_eq(r_t-r, s-s_t, p-1);
 
-                printf("Now which of those solutions maches the discrete log?\n");
+                printf("Now which of those solutions matches the discrete log?\n");
                 for (i = 1, #sol_vec,
                     solution = (g^sol_vec[i])%p;
                     if (solution == a, 

@@ -1,7 +1,9 @@
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 yellow(s) = { return(concat("\e[33m", concat(s, "\e[0m"))); }
-print("El_Gamel - interactive: Usage El_Gamel(z,g), \nz = Zn*, g = generator");
+print("El_Gamel: Usage El_Gamel(z,g), \nz = Zn*, g = generator");
+printf(blue("This is an INTERACTIVE script\n"));
+print("To find a generator use znstar(n) and then the 3. argument")
 
 El_Gamal(z, g) = {
     my(A, B, key_Bob, key_Alice);
