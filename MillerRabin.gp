@@ -1,7 +1,7 @@
 red(s) = { return(concat("\e[31m", concat(s, "\e[0m"))); }
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
-print("Miller Rabin: Usage MillerRobin(n) or MillerRabin(n, max_a)");
+print("Miller Rabin: Usage MillerRabin(n) or MillerRabin(n, max_a)");
 
 
 MillerRabin(n, end=n-2) = {
