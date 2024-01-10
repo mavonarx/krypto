@@ -20,7 +20,7 @@ Carmichael(n) = {
         curr = factors[i,1];
         if (curr==1, continue);
         if (gcd(curr-1,n-1)!=curr-1,
-        printf(red("%d -1 is not a divider of %d -1\n"), curr, n); return;
+        printf(red("%d -1 is not a divider of %d -1, %d is not Carmichael!\n"), curr, n, n); return;
         ,printf(blue("%d -1 is a divider of %d -1\n"), curr, n);
         );
     );
