@@ -5,6 +5,7 @@ print("Miller Rabin: Usage MillerRobin(n) or MillerRabin(n, max_a)");
 
 
 MillerRabin(n, end=n-2) = {
+    if (n%2==0, print("Miller rabins not suited for even numbers"); return);
     my(factors, r, k,k_array,lowerbound,upperbound);
     factors = factor(n-1);
     r = factors[1,2]; \\ first factor is always 2, second part of the array it the exponent of 2
