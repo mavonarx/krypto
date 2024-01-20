@@ -7,13 +7,18 @@ elliptic_diffieHellman(kA, kB, Px, Py, a,b, p=1) = {
   my(E, A, B);
   E = ellinit([a,b], p);
   A = ellmul(E, [Px, Py], kA);
+  P = [Px, Py];
   B = ellmul(E, [Px, Py], kB);
-  printf(blue("Public key of Alice: kA * P = (%d, %d)\n"), lift(A[1]), lift(A[2]));
-  printf(blue("Public key of Bob:   kB * P = (%d, %d)\n"), lift(B[1]), lift(B[2]));
+  printf(blue("Public key of Alice: %d * (%d, %d) \= (%d, %d)\n"), 
+  kA, lift(P[1]), lift(P[2]), lift(A[1]), lift(A[2]));
+  printf(blue("Public key of Bob:   %d * (%d, %d) \= (%d, %d)\n"), 
+  kB, lift(P[1]), lift(P[2]), lift(B[1]), lift(B[2]));
   key_Alice = ellmul(E, B, kA);
-  key_Bob = ellmul(E, A, kA);
-  printf(blue("Bob calculated the key with:   A * kb = (%d, %d)\n"), lift(key_Bob[1]), lift(key_Bob[2]));
-  printf(blue("Alice calculated the key with: B * ka = (%d, %d)\n"), lift(key_Alice[1]),lift(key_Alice[2]));
+  key_Bob = ellmul(E, A, kB);
+  printf(blue("Bob calculated the key with:   %d * (%d, %d) \= (%d, %d)\n"), 
+  kB, lift(A[1]), lift(A[2]), lift(key_Bob[1]), lift(key_Bob[2]));
+  printf(blue("Alice calculated the key with: %d * (%d, %d) \= (%d, %d)\n"), 
+  kA, lift(B[1]), lift(B[2]), lift(key_Alice[1]),lift(key_Alice[2]));
   printf(blue("The overall key is the the product: P * kA * kB"));
 }
 
