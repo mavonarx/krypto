@@ -2,7 +2,11 @@ red(s) = { return(concat("\e[31m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 
-\\ description needed
+
+print(blue("Contains functions for the quadratic-sieve AND a B-glatt-test function\n"))
+print(blue("Quadratic_sieve(n, F, S): n = number to be factorized, F = Factorbase [-1,2,3...], S = Grundmenge [...-3, -2, -1, 0, 1, 2...]\n"))
+print(blue("B_Glatt_test(x, n, F): x = test number, n = mod, F = Factorbase [-1,2,3...]\n"))
+
 
 Quadratic_sieve(n, F, S) = {
     m = floor(sqrt(n));
