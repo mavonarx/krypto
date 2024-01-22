@@ -2,6 +2,7 @@ red(s) = { return(concat("\e[31m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 print("Tonelli x^2 = a mod (p): Usage Tonelli(a,p)");
+print("Bestimmung einer Wurzel");
 
 Tonelli(a,p) = {
     if (p <=2, 
