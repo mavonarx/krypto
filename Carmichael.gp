@@ -7,16 +7,17 @@ Carmichael(n) = {
     if (n<3, print("numbers smaller 3 are not carmichael numbers"));
     my(factors, len, curr);
     factors = factor(n);
-    len = #factors;
-    for(i = 1, len+1,
+    len = #factors[,1];
+    for(i = 1, len,
         curr = factors[i,2];
         if (curr>1, 
-        printf(red("n is not square-free (%d ^ %d )\n %d is not Carmichael!\n"),factors[i,1],factors[i,2],n); return;
+        printf(red("n is not square-free (%d ^ %d)\n%d is not Carmichael!\n"),factors[i,1],factors[i,2],n); return;
         ) 
     );
     printf(blue("%d factorized is square free!\n"), n);
-
-    for (i= 1, len+1,
+    
+    printf(blue("check for every primefactor => (p-1) | (n-1)\n"));
+    for (i= 1, len,
         curr = factors[i,1];
         if (curr==1, continue);
         if (gcd(curr-1,n-1)!=curr-1,
