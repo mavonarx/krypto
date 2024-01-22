@@ -8,8 +8,12 @@ print("Usage: elliptic: signature_elliptic(a,b,p,d,k,m,P[],n, {sign_given[r,s]})
 print("d is the private key of alice, m is the hashed message, n = Cardinality of P = |P|");
 signature_elliptic(a,b,p,d,k,m,P,n, sign_given=[-1,-1]) = {
   
+  print(a);
+  print(b);
+  print(p);
   E = ellinit([a,b], p);
   Q = ellmul(E,P,d);
+  print(Q);
   printf(blue("Public Key Q = %d * (%d,%d) \= (%d, %d)\n"),
   d,lift(P[1]), lift(P[2]), lift(Q[1]), lift(Q[2])
   );
@@ -32,7 +36,7 @@ signature_elliptic(a,b,p,d,k,m,P,n, sign_given=[-1,-1]) = {
 
   printf(green("Signature: (%d, %d)\n"), r,s);
 
-  if (sign_given[1] !=1,
+  if (sign_given[1] !=-1,
     printf("set r and s to the given signature\n");
     r = sign_given[1];
     s = sign_given[2];
