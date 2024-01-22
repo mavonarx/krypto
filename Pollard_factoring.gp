@@ -9,7 +9,7 @@ Pollard_roh(n, x, a) = {
         printf(red("a should not be 0 or -2!\n"));
         return;       
     );
-    printf("x0 = %d\ny0 = %d\n", x,y);
+    printf("x0 = %d\ny0 = %d\n\n", x,y);
     found = 0; 
     for (i = 1, n,
         
@@ -17,8 +17,8 @@ Pollard_roh(n, x, a) = {
         y_before = y;
         x = (x^2 + a) % n ;
         y = ((y^2 + a) ^2 + a) % n;
-        printf("x%d = (%d ^2 + %d) %% %d = %d\n", i, x_before, a, n,x);
-        printf("y%d = (%d ^2 + %d) %% %d = %d\n" , i, y_before, a, n,y);
+        printf("x%d = (%d^2 + %d) %% %d = %d\n", i, x_before, a, n,x);
+        printf("y%d = (%d^2 + %d) %% %d = %d\n\n" , i, y_before, a, n,y);
 
         d = gcd(x-y , n);
         if (d > 1 && d < n, 
