@@ -6,10 +6,12 @@ blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 
 Quadratic_sieve(n, F, S) = {
     m = floor(sqrt(n));
+    printf(" X      q(x)    factors         Bi\n");
     for(s = 1, #S,
-        q = Qx(S[s], m, n);
+        x = S[s];
+        q = Qx(x, m, n);
         factors = factor(q);
-        
+        Bi = m+x;
         found = 0;
         for(f = 1, #factors[, 1],
             if((inList(F, factors[f,1]) != 0),
@@ -17,6 +19,12 @@ Quadratic_sieve(n, F, S) = {
                 break;
             );
         );
+
+        printf(" %d     %d     [", x, q);
+        for(f = 1, #factors[, 1],
+            printf("%d,", factors[f,1]);
+        );
+        printf("]       %d\n", Bi);
         if(found == #factors[,1],
             printf(green("%d erfüllt eigenschaft\n"), S[s]),
             printf(red("%d erfüllt eigenschaft nicht\n"), S[s]);
