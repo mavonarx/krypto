@@ -10,10 +10,11 @@ SL(n, test)={
     printf("r = %d\n",r);
     u = (n-1) / (2^r);
     printf("u = %d\n",u);
-
+    found = 0;
     if(test^u % n == 1,
         printf(blue("%d is a strong liar for %d\n"), test, n);
         printf(blue("reason: %d ^ %d  == 1 modulo(%d)\n"), test, u, n);
+        found = 1;
         return;
     );
 
@@ -21,11 +22,15 @@ SL(n, test)={
         if(test^(2^k * u) % n == (n-1),
             printf(blue("%d is a strong liar for %d\n"), test, n);
             printf(blue("%d^(2^%d * %d) \= -1 modulo(%d)\n"), test, k, u, n);
+            found = 1;
             break;
             return;
         );
     );
+    if (!found,
+
     printf(red("%d is not a strong liar for %d\n"), test, n);
     printf(red("%d ^ %d != 1 (mod %d)\nAND  %d^(2^k * %d) != -1 (mod %d) for a k {0..%d}"), 
     test, u, n,test, u , n, r-1);
+    );
 }
