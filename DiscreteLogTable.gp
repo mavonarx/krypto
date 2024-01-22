@@ -21,7 +21,7 @@ DiscreteLogTable(base, p) = {
 
     for (a = 1, p-1, 
         vals = "";
-        for (res = 0, p-1, 
+        for (res = 1, p-1, 
             
             if (base^res %p == a,
                     vals = concat(vals, Str(res));

@@ -30,7 +30,7 @@ SL(n, test)={
     if (!found,
 
     printf(red("%d is not a strong liar for %d\n"), test, n);
-    printf(red("%d ^ %d != 1 (mod %d)\nAND  %d^(2^k * %d) != -1 (mod %d) for a k {0..%d}"), 
+    printf(red("reason: %d ^ %d != 1 (mod %d) AND  %d^(2^k * %d) != -1 (mod %d) for a k {0..%d}"), 
     test, u, n,test, u , n, r-1);
     );
 }
