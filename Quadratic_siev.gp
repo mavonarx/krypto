@@ -37,3 +37,22 @@ Qx(x, m, n) = {
 }
 
 inList(list, value)=for(i=1,#list, if(list[i]==value, return(i))); 0
+
+
+B_Glatt_test(x, n, F) = {
+    a = x^2%n;
+    if(a > n/2,
+        a = a - n;
+    );
+    factors = factor(a);
+    found = 0;
+    for(f = 1, #factors[, 1],
+            if((inList(F, factors[f,1]) != 0),
+                found = found +1;
+            );
+    );
+    if(found == #factors[,1],
+        printf(green("%d is B-glatt"), x),
+        printf(red("%d is not B-glatt"), x);
+    );
+}
