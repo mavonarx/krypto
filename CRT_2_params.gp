@@ -1,4 +1,4 @@
-print("ChineseRemainderTheorem: Usage CRT_2_params( Mod(1,3), Mod(1,4), Mod(2,5))");
+print("ChineseRemainderTheorem: Usage CRT_2_params( Mod(1,3), Mod(1,4))");
 
 CRT_2_params(a,b) = {
 my(ab, a1, m1, a2, m2, m, M1, M2, u1, u2, X);
@@ -26,6 +26,6 @@ u2 = lift(Mod(M2,m2)^-1);
 printf("u2 = Mod(M2,m2)^-1 = %d\n", u2);
 
 X = ((a1 * M1 * u1)%m + (a2 * M2 * u2)%m)%m;
-printf("X is ((a1 * M1 * u1) mod m + (a2 * M2 * u2) mod m) mod m\n");
+printf("X = ((a1 * M1 * u1) mod m + (a2 * M2 * u2) mod m) mod m\n");
 printf("X = %d\n",X);
 }
