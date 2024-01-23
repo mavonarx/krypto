@@ -4,6 +4,8 @@ blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 print("P+Q => Usage Elliptic_add(px,py,qx,qy,a,{mod})");
 print("P-Q => Usage Elliptic_sub(px,py,qx,qy,a,{mod})");
 print("if no mod is given the real numbers are chosen as a field");
+printf(blue("4a^3 + 27b^2 != 0\n"));
+printf(blue("y^2 = x^3 + ax + b\n"));
 
 Elliptic_add(px,py,qx,qy,a,mod=-1) = {
     \\ if mod is -1 (default) then the Field of the real numbers is chosen
