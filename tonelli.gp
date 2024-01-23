@@ -72,7 +72,7 @@ Tonelli(a,p) = {
             if (res == p-1,
                 exp_h += (p-1)/2; \\ corresponds to a multiplication by -1
                 printf(green("%d is equivalent to -1 %% %d-> need adjustment of exponent of h\n"), res,p);
-                printf(green("Adjusted exp_h = %d (mult with -1)\n"), exp_h);
+                printf(green("Adjusted exp_h = %d \t(h_old += (p-1)/2)\n"), exp_h);
             );
 
         );

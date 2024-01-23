@@ -52,7 +52,7 @@ Baby_Giant(a,g,p) = {
             if (babyVals[j+1] == (a*h^i) % (p),
                 end = 1;
                 printf(green("\nCOLLISION FOUND = %d\n"), babyVals[j+1]);
-                printf(blue("i = %d, j = %d\n"), j, i);
+                printf(blue("i = %d, j = %d\n"), i, j);
                 x = (i * m + j) % p; 
                 printf(blue("x = (i * m + j) %% p = (%d * %d + %d) %% %d = %d"), i,m,j,p,x);
                 break;
