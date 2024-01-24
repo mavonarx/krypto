@@ -14,6 +14,7 @@ Tonelli(a,p) = {
     \\ check euler criterium first!
     euler_crit = (a^((p-1)/2)) % p;
     if (euler_crit == p-1, 
+        printf(red("euler criterium not fullfilled! (a^((p-1)/2)) %% p = -1;\n"));
         printf(red("a = %d  doesnt have a root in Z%d*\n"), a, p);
         return;
     );
