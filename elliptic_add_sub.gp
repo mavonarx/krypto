@@ -44,7 +44,7 @@ Elliptic_add(px,py,qx,qy,a,mod=-1) = {
             y = -m * (x -px) -py;
             printf(blue("y = -m *(x -px) -py = %.8f\n"), y); 
             printf(green("y = -%.8f *(%.8f -%.8f) -%.8f = %.8f\n"),m,x,px,py,y);
-            printf(blue("(%d,%d)\n"),x, y); 
+            printf(blue("(%.8f,%.8f)\n"),x, y); 
         );
         
         
