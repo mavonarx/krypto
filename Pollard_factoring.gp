@@ -22,6 +22,7 @@ Pollard_roh(n, x, a) = {
 
         d = gcd(x-y , n);
         if (d > 1 && d < n, 
+            printf("gcd((%d - %d), %d) \= %d\n",x,y,n, d);
             printf(green("%d is a factor of %d\n"), d,n);
             found= 1;
             return d;
