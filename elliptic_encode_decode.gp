@@ -18,6 +18,7 @@ Encode(a,b,p,shift,m) = {
           printf(green("%d does have a sqare root in Z%d\*\n"), curr,p);
           printf(green("sqrt(%d) \= y = %d\n"), curr,root_my);
           printf(green("x = %d, y = %d\n"), m_curr, root_my);
+          printf(green("M = (%d, %d)\n"), m_curr, root_my);
           break;, 
       E, 
       m_curr = m_curr+1;
