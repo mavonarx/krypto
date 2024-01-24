@@ -110,7 +110,7 @@ Pollard_disc_log(a,g,p,g1_low, g1_up, g2_low, g2_up, g3_low, g3_up) = {
                     solution = (g^sol_vec[i])%p;
                     if (solution == a, 
                         printf(green("%d fullfills disc. log\n"),sol_vec[i] );
-                        printf(green("log_%d(%d) \= %d\n"),g,a,sol_vec[i]);
+                        printf(green("log_%d(%d) \= %d in mod(%d)\n"),g,a,sol_vec[i], p);
                         break;
                         ,
                         printf(red("%d does not fullfill disc. log\n"), sol_vec[i]);
