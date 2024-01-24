@@ -1,11 +1,10 @@
-print("ChineseRemainderTheorem: Usage low_exponent(e,m1,r1,m2,r2,m3,r3,t)");
+print("ChineseRemainderTheorem: Usage low_exponent(e,m1,r1,m2,r2,m3,r3)");
 
-low_exponent(e, m1, r1, m2, r2, m3, r3, t) = {
+low_exponent(e, m1, r1, m2, r2, m3, r3) = {
   X = CRT(Mod(r1,m1), Mod(r2,m2), Mod(r3,m3));
-  printf("t^e = %d\n", t^e);
   printf("t = X ^(1/e)\n");
-  res = sqrtn(X,e);
-  printf("t = %d ^(1/%d) \= %d\n", X, e, res);
+  t = sqrtn(X,e);
+  printf("t = %d ^(1/%d) \= %d\n", X, e, t);
 }
 
 CRT(a,b,c) = {
