@@ -2,7 +2,7 @@ red(s) = { return(concat("\e[31m", concat(s, "\e[0m"))); }
 blue(s) = { return(concat("\e[34m", concat(s, "\e[0m"))); }
 green(s) = { return(concat("\e[32m", concat(s, "\e[0m"))); }
 print("Miller Rabin: Usage MillerRabin(n) or MillerRabin(n, max_a)");
-
+print("Case_1 = a^u = 1 mod n OR Case_2 = a^((2^k) * u) \= -1");
 
 MillerRabin(n, end=n-2) = {
     if (n%2==0, print("Miller rabins not suited for even numbers"); return);
@@ -29,6 +29,7 @@ MillerRabin(n, end=n-2) = {
             
             if (a^(2^k*u) %n ==n-1, 
                 printf(blue("Case_2: found with k = %d\n"),k);
+                printf(blue("%d^((2^%d)* %d) (mod %d)== -1\n"),a,k,u,n);
                 break;) ;\\ continues to the next a
                 printf("k now at = %d\n", k
             );
@@ -53,7 +54,8 @@ MillerRabin(n, end=n-2) = {
             );
 
             if (upperbound - lowerbound <= 1, 
-                printf(red("%d is not prime because -1 is not found for any k\n"), n);
+                printf(red("%d is not prime because a^((2^k)* u) is not -1 for any k {0..r-1}\n"), n);
+                printf(red("neither is a^u = 1 (mod n)"));
                 return;
             );
         );
