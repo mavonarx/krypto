@@ -1,6 +1,7 @@
 print("ChineseRemainderTheorem: Usage low_exponent(e,m1,r1,m2,r2,m3,r3)");
 
 low_exponent(e, m1, r1, m2, r2, m3, r3) = {
+  printf("Performing CRT:\n");
   X = CRT(Mod(r1,m1), Mod(r2,m2), Mod(r3,m3));
   printf("t = X ^(1/e)\n");
   t = sqrtn(X,e);
