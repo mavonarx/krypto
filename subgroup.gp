@@ -9,6 +9,9 @@ a = (a * x) % z;\
 count++;\
 printf("%d ", a);\
 );
-printf("\nThe cardinality of the subgroup is: %d", count);
+printf("\nThe cardinality of the subgroup is: %d\n", count);
+if (count == z -1, 
+  printf("%d is a generator of Z%d*\n",x,z) 
+  );
 }
 
